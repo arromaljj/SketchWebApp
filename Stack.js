@@ -1,0 +1,8 @@
+function Stack(){
+
+    this.canvas = [];
+
+
+
+
+}

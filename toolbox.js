@@ -4,7 +4,9 @@ function Toolbox() {
 	var self = this;
 	this.tools = [];
 	this.selectedTool = null;
-
+	
+	//called when a tool in the sidebar is clicked
+	//called during mouseclick event
 	var toolbarItemClick = function() {
 		//remove any existing borders
 		var items = selectAll(".sideBarItem");
@@ -13,7 +15,7 @@ function Toolbox() {
 		}
 
 		var toolName = this.id().split("sideBarItem")[0];
-		//console.log(toolName)
+		console.log(toolName);
 		self.selectTool(toolName);
 
 		//call loadPixels to make sure most recent changes are saved to pixel array
@@ -22,6 +24,7 @@ function Toolbox() {
 	}
 
 	//add a new tool icon to the html page
+	//this is a helper function
 	var addToolIcon = function(icon, name) {
 		var sideBarItem = createDiv("<img src='" + icon + "'></div>");
 		sideBarItem.class('sideBarItem')

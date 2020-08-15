@@ -12,6 +12,9 @@ function FreehandTool(){
 	let width;
 	var widthText;
 	var added = false;
+
+	this.unlocked = false;
+	this.state = [];
 	
 	//draws the line to the screen 
 
@@ -64,7 +67,7 @@ function FreehandTool(){
 			//check if they previousX and Y are -1. set them to the current
 			//mouse X and Y if they are.
 			
-		
+			console.log(keyCode);
 			if (previousMouseX == -1){
 				previousMouseX = mouseX;
 				previousMouseY = mouseY;
@@ -72,8 +75,9 @@ function FreehandTool(){
 			//if we already have values for previousX and Y we can draw a line from 
 			//there to the current mouse location
 			else{
+				this.state.push([previousMouseX, previousMouseY, mouseX, mouseY]);
 				line(previousMouseX, previousMouseY, mouseX, mouseY);
-					
+				
 				// line(previousMouseX - random(-5, 5) , previousMouseY + random(-5, 5), mouseX, mouseY);
 				// line(previousMouseX - random(-7, 7) , previousMouseY + random(-7, 7), mouseX, mouseY);
 				// line(previousMouseX - random(-3, 3) , previousMouseY + random(-3, 3), mouseX, mouseY);
@@ -83,11 +87,20 @@ function FreehandTool(){
 		}
 		
 		//if the user has released the mouse we want to set the previousMouse values 
-		//back to -1.
-		//try and comment out these lines and see what happens!
+		// back to -1.
+		// try and comment out these lines and see what happens!
 		else{
+			if (this.unlocked){
+				for(i = 0; i < this.state.length; i++){
+					line(this.state[i][0], this.state[i][1], this.state[i][2], this.state[i][3]);
+				}
+				this.state = [];
+				this.unlocked = false;
+			}
 			previousMouseX = -1;
 			previousMouseY = -1;
 		}
 	};
 }
+
+

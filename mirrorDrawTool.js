@@ -20,6 +20,10 @@ function mirrorDrawTool() {
 	var previousOppositeMouseX = -1;
 	var previousOppositeMouseY = -1;
 
+
+
+
+
 	this.draw = function() {
 		//display the last save state of pixels
 		updatePixels();
@@ -51,11 +55,11 @@ function mirrorDrawTool() {
 				previousOppositeMouseY = oY;
 			}
 		}
+		
 		//if the mouse isn't pressed reset the previous values to -1
 		else {
 			previousMouseX = -1;
 			previousMouseY = -1;
-
 			previousOppositeMouseX = -1;
 			previousOppositeMouseY = -1;
 		}

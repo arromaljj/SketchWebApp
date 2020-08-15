@@ -41,51 +41,7 @@ function draw() {
 		alert("it doesn't look like your tool has a draw method!");
 	}
 
-	// select("#content").mouseReleased(function(){
-	// 	if (b == false){
-	// 	console.log("came here");
-	// 	push();
-	// 	translate(50,50)
-	// 	// background(255);
-		
-	// 	b = true;
-	// 	}
-	// })
-	
-	// if (a = true){
-	// 	pop();
-	// 	a = false;
-	// }
+
 	
 }
 
-// function keyPressed(){
-// 	if (keyCode == 38){
-		
-// 		a = true;
-// 		console.log("popped");
-// 	}
-// }
-
-
-// select("#content").mouseReleased(function(){
-// 	push();
-// });
-
-
-
-// function keyReleased(){
-	
-// 	if (toolbox.selectedTool.name == "sprayCanTool"){
-// 		spray = toolbox.selectedTool;
-// 		if (keyCode == 38){
-// 			spray.changeSpread(1);
-// 		}
-// 		else if (keyCode == 40){
-// 			spray.changeSpread(-1);
-// 		}
-		
-// 	}
-	
-	
-// }

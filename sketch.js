@@ -4,7 +4,7 @@ var toolbox = null;
 var colourP = null;
 var helpers = null;
 a = false;
-var state = []
+var actionManager = null;
 x = 0
 function setup() {
 
@@ -16,7 +16,7 @@ function setup() {
 	//create helper functions and the colour palette
 	helpers = new HelperFunctions();
 	colourP = new ColourPalette();
-
+	actionManager = new actionManager();
 	//create a toolbox for storing the tools
 	toolbox = new Toolbox();
 

@@ -10,6 +10,8 @@ function HelperFunctions() {
     //call loadPixels to update the drawing state
     //this is needed for the mirror tool
     loadPixels();
+    actionManager.clear();
+    // actionManager.drawState = [];
   });
 
   //event handler for the save image button. saves the canvsa to the

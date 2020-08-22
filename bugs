@@ -1,0 +1,3 @@
+Bug 1 - There is an object pushed to the array in actionManager as a result of the 
+clear button click. This can be eliminated by popping from array after the click. 
+However this is only a rudimentary fix.

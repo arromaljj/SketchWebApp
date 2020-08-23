@@ -67,38 +67,34 @@ function LineToTool() {
         startMouseY = mouseY;
         drawing = true;
         //save the current pixel Array
-		loadPixels();
-		
-		
+        loadPixels();
       } else {
         //update the screen with the saved pixels to hide any previous
         //line between mouse pressed and released
         updatePixels();
         //draw the line
         this.drawHistory.add('line', [
-			startMouseX,
-			startMouseY,
-			mouseX,
-			mouseY
-		  ]);
+          startMouseX,
+          startMouseY,
+          mouseX,
+          mouseY
+        ]);
         line(startMouseX, startMouseY, mouseX, mouseY);
       }
     } else if (drawing) {
       //save the pixels with the most recent line and reset the
       //drawing bool and start locations
-	  loadPixels();
-	  if (this.shouldSave) {
-		console.log('saved');
-		this.drawHistory.contents = [this.drawHistory.contents.pop()];
+      loadPixels(); // everything seems to work even without this line.
+      if (this.shouldSave) {
+        console.log('saved');
+        this.drawHistory.contents = [this.drawHistory.contents.pop()];
         actionManager.add(this.drawHistory);
         this.drawHistory = new drawHistory();
         this.shouldSave = false;
       }
       drawing = false;
       startMouseX = -1;
-	  startMouseY = -1;
-	  
-	}
-
+      startMouseY = -1;
+    }
   };
 }

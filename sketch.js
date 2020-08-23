@@ -6,6 +6,7 @@ var helpers = null;
 a = false;
 var actionManager = null;
 x = 0
+
 function setup() {
 
 	//create a canvas to fill the content div from index.html
@@ -19,12 +20,13 @@ function setup() {
 	actionManager = new actionManager();
 	//create a toolbox for storing the tools
 	toolbox = new Toolbox();
-
+	
 	//add the tools to the toolbox.
 	toolbox.addTool(new FreehandTool());
 	toolbox.addTool(new LineToTool());
 	toolbox.addTool(new SprayCanTool());
 	toolbox.addTool(new mirrorDrawTool());
+	toolbox.addTool(new NewTool());
 	background(255);
 	angleMode(DEGREES);
 }

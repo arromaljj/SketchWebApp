@@ -1,0 +1,6 @@
+function pixelStore(){
+    this.state = [];
+    
+
+
+}

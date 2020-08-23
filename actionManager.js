@@ -50,7 +50,7 @@ function drawHistory(){
 
 
 function keyPressed(){
-	console.log(keyCode);
+	
 	if (keyCode == 85){
 		console.log("undo");
 		actionManager.undo();

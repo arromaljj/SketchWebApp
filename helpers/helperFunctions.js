@@ -19,4 +19,11 @@ function HelperFunctions() {
   select('#saveImageButton').mouseClicked(function() {
     saveCanvas('myPicture', 'jpg');
   });
+
+  select('#undoButton').mouseClicked(function(){
+    actionManager.undo();
+  });
+  select('#redoButton').mouseClicked(function(){
+    actionManager.redo();
+  })
 }

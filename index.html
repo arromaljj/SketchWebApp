@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
+
+
     <script src="lib/p5.min.js"></script>
     <script src="lib/p5.dom.js"></script>
 
     <script src="sketch.js"></script>
 
     <!-- add extra scripts below -->
-    <script src="newTool.js"></script>
-    <script src="toolbox.js"></script>
-    <script src="colourPalette.js"></script>
-    <script src="helperFunctions.js"></script>
-    <script src="actionManager.js"></script>
-    <script src="freehandTool.js"></script>
-    <script src="lineToTool.js"></script>
-    <script src="sprayCanTool.js"></script>
-    <script src="mirrorDrawTool.js"></script>
+    <script src="tools/newTool.js"></script>
+    <script src="components/toolbox.js"></script>
+    <script src="components/colourPalette.js"></script>
+    <script src="helpers/helperFunctions.js"></script>
+    <script src="helpers/actionManager.js"></script>
+    <script src="tools/freehandTool.js"></script>
+    <script src="tools/lineToTool.js"></script>
+    <script src="tools/sprayCanTool.js"></script>
+    <script src="tools/mirrorDrawTool.js"></script>
 
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
@@ -33,6 +35,7 @@
       <div id="content"></div>
       <div id="toolOptions" class="box"></div>
       <div class="box colourPalette"></div>
+      <div class="attachColorPicker"></div>
       <div class="box options"></div>
     </div>
   </body>

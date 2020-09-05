@@ -13,7 +13,7 @@ function setup() {
 	canvasContainer = select('#content');
 	var c = createCanvas(canvasContainer.size().width, canvasContainer.size().height);
 	c.parent("content");
-	
+
 
 	//create helper functions and the colour palette
 	helpers = new HelperFunctions();
@@ -48,10 +48,10 @@ function draw() {
 function mousePressed(){
 	if (mouseX >= 0 & mouseX <= width && mouseY >=0 & mouseY <= height){
 	mouseDown = true;
-	console.log("down");
 	}
 }
 function mouseReleased(){
 	
 	mouseDown = false;
 }
+

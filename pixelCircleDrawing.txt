@@ -60,48 +60,51 @@ function FreehandTool() {
     }
     strokeWeight(width);
 
-    //if the mouse is pressed
-    if (mouseDown) {
-      //check if they previousX and Y are -1. set them to the current
-      //mouse X and Y if they are.
-      this.shouldSave = true;
-
-      if (previousMouseX == -1) {
-        previousMouseX = mouseX;
-        previousMouseY = mouseY;
-      }
-      //if we already have values for previousX and Y we can draw a line from
-      //there to the current mouse location
-      else {
-        this.drawHistory.add('line', [
-          previousMouseX,
-          previousMouseY,
-          mouseX,
-          mouseY
-        ]);
-        line(previousMouseX, previousMouseY, mouseX, mouseY);
-
-        // line(previousMouseX - random(-5, 5) , previousMouseY + random(-5, 5), mouseX, mouseY);
-        // line(previousMouseX - random(-7, 7) , previousMouseY + random(-7, 7), mouseX, mouseY);
-        // line(previousMouseX - random(-3, 3) , previousMouseY + random(-3, 3), mouseX, mouseY);
-        previousMouseX = mouseX;
-        previousMouseY = mouseY;
-      }
-    }
-
-    //if the user has released the mouse we want to set the previousMouse values
-    // back to -1.
-    // try and comment out these lines and see what happens!
-    else {
-      if (this.shouldSave) {
-        console.log('saved');
-        actionManager.add(this.drawHistory);
-        this.drawHistory = new drawHistory();
-        this.shouldSave = false;
-      }
-
-      previousMouseX = -1;
-      previousMouseY = -1;
+    if (mouseIsPressed) {
+      loadPixels();
+	  circle = circleIndices(mouseX, mouseY, 2);
+	//   console.log(mouseX, mouseY);
+	  for (var i = 0; i <= circle.length; i++){
+		  pixels[circle[i]] = 0; 
+		  pixels[circle[i] + 1] = 0;
+		  pixels[circle[i] + 2] = 0;
+	  }
+      updatePixels();
     }
   };
+}
+function circleIndices(x,y,r){
+	indices = [];
+	circle = circleBitMap(x,y,r);
+	for (var i = 0; i < circle.length; i++){
+		for(var j = circle[i][0]; j <= circle[i][1]; j++){
+			indices.push( 4 * ( j + (circle[i][2] * width) ) );
+			// indices.push( 4 * ( j + (circle[i][2] * width) ) );
+		}
+	}
+	return indices
+}
+
+function circleBitMap(x,y,r){
+	circle = circleMap(r);
+	for (var i = 0; i < circle.length; i++){
+		circle[i][0] += x;
+		circle[i][1] += x;
+		circle[i][2] += y;
+	}
+	return circle;
+}
+
+function circleMap(r){
+	circle = [];
+	for(var y = 0; y <=r; y++){
+		var a = circleMinMax(r, y);
+		circle.push([a * -1, a,y]);
+		circle.push([a * -1, a,-y]);
+	}
+	return circle;
+}
+
+function circleMinMax(r, y){
+	return Math.round(Math.sqrt(Math.pow(r,2) - Math.pow(y,2)));
 }

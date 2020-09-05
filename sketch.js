@@ -6,13 +6,14 @@ var helpers = null;
 a = false;
 var actionManager = null;
 x = 0
-
+mouseDown = false;
 function setup() {
 
 	//create a canvas to fill the content div from index.html
 	canvasContainer = select('#content');
 	var c = createCanvas(canvasContainer.size().width, canvasContainer.size().height);
 	c.parent("content");
+	
 
 	//create helper functions and the colour palette
 	helpers = new HelperFunctions();
@@ -43,7 +44,14 @@ function draw() {
 		alert("it doesn't look like your tool has a draw method!");
 	}
 
-
-	
 }
-
+function mousePressed(){
+	if (mouseX >= 0 & mouseX <= width && mouseY >=0 & mouseY <= height){
+	mouseDown = true;
+	console.log("down");
+	}
+}
+function mouseReleased(){
+	
+	mouseDown = false;
+}

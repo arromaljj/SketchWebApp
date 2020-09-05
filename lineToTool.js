@@ -60,7 +60,7 @@ function LineToTool() {
     strokeWeight(width);
     this.shouldSave = true;
     //only draw when mouse is clicked
-    if (mouseIsPressed) {
+    if (mouseDown) {
       //if it's the start of drawing a new line
       if (startMouseX == -1) {
         startMouseX = mouseX;
